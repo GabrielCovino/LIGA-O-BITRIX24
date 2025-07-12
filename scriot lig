@@ -1,14 +1,12 @@
 function ligar() {
-  // Obtém o ID do lead atual da URL
   const urlParams = new URLSearchParams(window.location.search);
   const leadId = urlParams.get("ID");
 
   if (!leadId) {
-    alert("ID do lead não encontrado.");
+    alert("ID do lead não encontrado na URL. Use ?ID=123 na URL.");
     return;
   }
 
-  // Chama a API para buscar os dados do lead
   BX24.callMethod(
     'crm.lead.get',
     { id: leadId },
